@@ -4,55 +4,126 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header{
+#start{
+    position: relative;
     padding: 60px 0px;
-    background-image: url(header02.jpg);
+
+}
+
+#start::before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    background-image: url(images/header02.jpg);
     opacity: 40%;
 }
 
-nav, nav div{
-    margin-top: -20px;
+#menu .tipos-list:hover .tipos-perfil{
+    visibility: visible !important;
+}
+
+.tipos-perfil{
+    margin-top: 1px !important;
+    visibility: hidden;
+    position: absolute;
+    background-color: #9c0606;
+    justify-content: space-around !important;
+    flex-direction: column;
+    text-align: left !important;
+    margin-left: 343px;
+    font-size: 20px;
+}
+
+.tipos-perfil .itens-perfil{
+    color: #fff !important;
+    background-color: #9c0606;
+    border: none;
+    padding: 5px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    width: 173px;
+    padding: 5px;
+}
+
+.tipos-perfil .itens-perfil:hover{
+    background-color: #888888;
+}
+
+
+#menu{
+    position: absolute;
+}
+
+#menu, #menu div{
+    margin-top: 9px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-nav img{
+#menu img{
     width: 230px;
     position: relative;
     margin-left: 15px;
     margin-top: -35px;
 }
 
-nav h1{
+#menu span img{
+    width: 30px;
+    margin-bottom: -8px;
+    margin-right: -20px;
+    border-radius: 18px;
+    border: 2px solid rgb(44, 44, 44);
+}
+/* 
+#menu h1{
     display: inline;
     margin-left: 20px;
     font-size: 40px;
     color:  rgb(44, 44, 44);
-}
+} */
 
-nav ul li{
+#menu ul li{
     display: inline;
     position: relative;
     margin-right: 25px;
     font-size: 20px;
 }
 
-nav ul li a{
+#menu ul li a{
     color: rgb(44, 44, 44);
     text-decoration: none;
     font-weight: 500;
 }
-nav ul li a:hover{
+#menu ul .links:hover{
     border-bottom: 2px solid #9c0606;
 }
 
 #logout{
-    margin-top: -2px;
+    margin-top: 22px;
+    margin-left: 420px;
+
 }
 
 #logout a:hover{
     color: #9c0606;
+}
+
+#welcome{
+    padding: 0px 60px 20px;
+}
+
+#welcome .titulo-perfil{
+    color: #9c0606;
+    font-size: 40px;
+}
+
+main{
+    margin-top: 100px;
 }
 
 .card{
@@ -68,10 +139,14 @@ nav ul li a:hover{
     box-shadow: 0 5px 10px #888888;
 }
 
-.card h1{
+.card h2, .titulo-perfil, .card caption{
     border-bottom: 1px solid rgb(192, 192, 192);
     padding-bottom: 20px;
-    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    text-align: left;
+    font-weight: bold;
 }
 
 .card input[type=text], textarea{
@@ -98,7 +173,7 @@ nav ul li a:hover{
     font-size: 13px;
 }
 
-.card input[type=submit]{
+.card button{
     color: #FFF;
     padding: 10px 20px;
     background-color: #9c0606;
@@ -109,11 +184,11 @@ nav ul li a:hover{
     border-radius: 4px;
 }
 
-.card input[type=submit]:hover{
+.card button:hover{
     background-color: #b61f1f;
 }
 
-#listar{
+.listar{
     width: 63% !important;
     margin-left: 17%;
 }
@@ -121,6 +196,38 @@ nav ul li a:hover{
 textarea{
     width: 96% !important;
     padding: 5px;
+}
+
+#actions{
+    width: 140px !important;
+}
+
+.update-btn, .delete-btn{
+    width: 60px !important;
+    margin: 5px !important;
+}
+
+.update-btn img, .delete-btn img{
+    width: 20px;
+    height: 20px;
+}
+
+.sobre-perfil{
+    text-align: justify;
+    line-height: 25px;
+    margin: 10px 0px 20px;
+    font-size: 17px;
+}
+
+.dica{
+    text-align: center;
+    margin: 30px 0px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.dica span{
+    color: #9c0606;
 }
 
 table{
@@ -132,43 +239,125 @@ table, th, td{
     border-radius: 4px;
 }
 
+#herois img, #viloes img, #antiherois img{
+    /* width: 60% !important; */
+    width: 100% ;
+    height: 30% !important;
+    /* margin-left: 20%; */
+}
+#herois, #viloes, #antiherois {
+    /* display:none; */
+
+}
+
+
 footer{
     padding: 40px 0px;
-    background-image: url(header02.jpg);
+    position: relative;
+}
+
+
+footer::before{
+    content: "";
+    padding: 40px 0px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    background-image: url(images/header02.jpg);
     opacity: 35%;
 }
 
-#footer {
+
+footer small{
     text-align: center;
     font-weight: 700;
-    margin-top: -50px;
-    position: relative;
+    margin-top: -10px;
+    margin-left: 27%;
+    position: absolute;
     font-size: 18px;
 }
 
-@media(max-width: 800px){
+@media(max-width: 1470px){
 
-    nav, nav div{
+    #logout{
+        margin-left: 363px;
+    }
+
+}
+
+@media(max-width: 1390px){
+
+    #logout{
+        margin-left: 343px;
+    }
+
+}
+
+@media(max-width: 1369px){
+
+    #logout{
+        margin-left: 260px;
+    }
+
+}
+
+@media(max-width: 1287px){
+
+    #logout{
+        margin-left: 174px;
+    }
+
+}
+@media(max-width: 1200px){
+
+    #logout{
+        margin-left: 75px;
+    }
+
+}
+
+@media(max-width: 1101px){
+
+    #menu{
+        margin-left: 36%;
+    }
+
+    #menu, #menu div{
         flex-wrap: wrap;
         flex-direction: column;
     }
     
-    nav ul{
-        margin-top: 10px;
+    #menu ul{
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
         text-align: center;
     }
-    nav ul li{
+    #menu ul li{
         font-size: 20px;
         margin-top: 15px;
         margin-right: 20px !important;
     }
 
+    #menu span img{
+        margin-right: 0px;
+    }
+
     #logout{
-        margin-top: 80px !important;
+        margin-top: 123px !important;
         position: absolute;
-        /* margin-left: -17px; */
+        margin-left: -26px;
+        display: inline !important;
+    }
+
+    .tipos-perfil{
+        margin-left: 0px !important;
+    }
+
+    main{
+        margin-top: 300px;
     }
 
     .card{
@@ -176,13 +365,33 @@ footer{
         margin-left: 14%;
     }
 
-    #listar{
-        margin-left: 1% !important;
-        width: 88% !important;
+    #herois img, #viloes img, #antiherois img{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+
+    .listar{
+        margin-left: 3% !important;
+        width: 86% !important;
         /* margin-left: 17%; */
         /* margin: 0 !important; */
         margin-bottom: 40px !important;
     }
+
+    #actions{
+        width: 70px !important;
+    }
+
+        
+    .update-btn, .delete-btn{
+        width: 60px !important;
+    }
+
+    .update-btn img, .delete-btn img{
+        width: 15px;
+        height: 15px;
+    }
+
 
     table, th, td{
         padding: 0;
@@ -190,7 +399,135 @@ footer{
         font-size: 16px;
     }
 
-    #footer{
+    footer small{
         font-size: 14px;
+        margin-left: 25%;
     }
+}
+
+@media(max-width: 800px){
+
+    #menu{
+        margin-left: 32%;
+    } 
+
+    footer small{
+        font-size: 12px;
+        margin-left: 20%;
+    }
+
+}
+
+@media(max-width: 650px){
+
+    #menu{
+        margin-left: 30%;
+    } 
+
+}
+
+@media(max-width: 580px){
+
+    #menu{
+        margin-left: 25%;
+    } 
+    footer small{
+        font-size: 10px;
+        margin-left: 17%;
+    }
+
+}
+
+@media(max-width: 477px){
+    #welcome .titulo-perfil{
+        font-size: 35px;
+    }
+}
+
+@media(max-width: 433px){
+
+    #menu{
+        margin-left: 20%;
+    }
+
+    #welcome .titulo-perfil{
+        font-size: 30px;
+    }
+    
+    #actions{
+        width: 35px !important;
+    }
+
+        
+    .update-btn, .delete-btn{
+        width: 30px !important;
+        padding: 5px 10px !important;
+        padding-left: 15px !important;
+    }
+
+
+    .update-btn img, .delete-btn img{
+        width: 10px;
+        height: 10px;
+        margin-left: -5px;
+    }
+
+    
+    table, th, td{
+        padding: 0;
+        margin-left: -5px;
+        font-size: 12px;
+    }
+
+}
+
+@media(max-width: 400px){
+    .listar{
+        margin-left: 1% !important;
+    }
+}
+
+@media(max-width: 389px){
+
+    #menu{
+        margin-left: 15%;
+    } 
+
+    #welcome .titulo-perfil{
+        font-size: 25px;
+    }
+    footer small{
+        font-size: 10px;
+        margin-left: 10%;
+    }
+}
+
+@media(max-width: 343px){
+
+    #welcome .titulo-perfil{
+        font-size: 22px;
+    }
+}
+
+@media(max-width: 322px){
+
+    #menu{
+        margin-left: 12%;
+    } 
+
+    #welcome .titulo-perfil{
+        font-size: 20px;
+    }
+    footer small{
+        font-size: 9px;
+        margin-left: 5%;
+    }
+}
+
+@media(max-width: 280px){
+
+    #menu{
+        margin-left: 5%;
+    } 
+
 }

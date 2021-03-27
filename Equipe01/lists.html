@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="images/logo02.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="scripts/characterStore.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/actions.js"></script>
+    <title>Universo HQ - Personagens</title>
+</head>
+<body>
+    <header id="start">
+        <div id="menu">
+            <div>
+                <a href="#start"><img src="images/logo02.png" alt="Logo Universo HQ"></a>
+                <ul>
+                    <li class="links"><a href="#inserir">Inserir Personagens</a></li>
+                    <li class="links"><a href="#listagem">Listar Todos</a></li>
+                    <li class="tipos-list"><a>Listagem por Perfil</a>
+                        <div class="tipos-perfil">
+                            <a class="itens-perfil" id="link-heroi" onclick="loadHero()"  href="lists.html#herois" target="_blank">Herói</a>
+                            <a class="itens-perfil" id="link-vilao" onclick="loadVillain()" href="lists.html#viloes" target="_blank">Vilão</a>
+                            <a class="itens-perfil" id="link-antiheroi" onclick="loadAntiHero()" href="lists.html#antiherois" target="_blank">Anti-herói</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ul id="logout">
+                <li><span><img src="images/person.png" alt="Sua Foto"></span></li>
+                <li>na_weise</li>
+                <!-- <li class="links"><a href="#start">Sair</a></li> -->
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section id="herois" class="card listar">
+            <img src="images/herois.jpeg" alt="Homem-Aranha, Supergirl e Robin">
+            <h1 class="titulo-perfil">Heróis</h1>
+            <p class="sobre-perfil">Lutam pelo bem e pela justiça, sempre seguindo a ética e a moralidade.
+            Optam por ajudar pessoas, pois sempre perdem alguém muito importante na vida deles.
+            Não possuem poderes necessariamente e, se for preciso, lutam até à morte pelo o que acreditam.
+            Os grupos mais famosos de heróis são a <strong>Liga da Justiça(DC)</strong> e os <strong>Vingadores(Marvel)</strong>.
+            </p>
+
+            <table id="listagem">
+                <thead>
+                <tr id="listagem-header">
+                    <th>Nome</th>
+                    <th>Alter ego</th>
+                    <th>Franquia</th>
+                    <th>Perfil</th>
+                    <th>Poderes</th>
+                    <th id="actions">#</th>
+                </tr>
+            </thead>
+            <tbody id="listagem-body">
+
+            </tbody>
+            </table>
+
+            <p class="dica">Se interessou por <span>heróis</span>? <br>Então vem conferir o vídeo abaixo:</p>
+
+            <video width="100%" controls>
+                <source src="videos/herois.mp4" type="video/mp4">
+            </video>            
+
+        </section>
+
+        <section id="viloes" class="card listar">
+            <img src="images/viloes.jpeg" alt="Venom, Sinestro e Rocha Lunar">
+            <h1 class="titulo-perfil">Vilões</h1>
+            <p class="sobre-perfil">Lutam pelos próprios interesses, geralmente em busca de vingança. 
+                Nunca perderam alguém, pois o maior drama dos vilões é que eles nunca tiveram nada ou ninguém 
+                que fosse importante pra eles ou alguém que os amasse.
+                Os grupos mais famosos de vilões são a  <strong>Liga da Injustiça(DC)</strong>, 
+                <strong>IMA(Marvel)</strong>, <strong>Hydra(Marvel)</strong> e
+                <strong>Irmandade da Serpente(Marvel)</strong>.
+            </p>
+            <table id="listagem">
+                <thead>
+                <tr id="listagem-header">
+                    <th>Nome</th>
+                    <th>Alter ego</th>
+                    <th>Franquia</th>
+                    <th>Perfil</th>
+                    <th>Poderes</th>
+                    <th id="actions">#</th>
+                </tr>
+            </thead>
+            <tbody id="listagem-body">
+
+            </tbody>
+            </table>
+            <p class="dica">Se interessou por <span>vilões</span>? <br>Então vem conferir o vídeo abaixo:</p>
+
+            <video width="100%" controls>
+                <source src="videos/viloes.mp4" type="video/mp4">
+            </video> 
+        </section>
+
+        <section id="antiherois" class="card listar">
+            <img src="images/antiherois.jpeg" alt="Arlequina, Wolverine e Deadpool">
+            <h1 class="titulo-perfil">Anti-heróis</h1>
+            <p class="sobre-perfil">Tecnicamente são os mocinhos, mas não possuem muita ética. Dessa forma, não se importam 
+                se ferirem o rival. Até fazem coisas boas, mas não pelos motivos certos e vice-versa.
+                Os principais grupos de anti-heróis são o 
+                <strong>Esquadrão Suicida(DC)</strong> e os
+                <strong>Guardiões da Galáxia(Marvel)</strong>.
+            </p>
+            <table id="listagem">
+                
+                <thead>
+                <tr id="listagem-header">
+                    <th>Nome</th>
+                    <th>Alter ego</th>
+                    <th>Franquia</th>
+                    <th>Perfil</th>
+                    <th>Poderes</th>
+                    <th id="actions">#</th>
+                </tr>
+            </thead>
+            <tbody id="listagem-body">
+
+            </tbody>
+            </table>
+            <p class="dica">Se interessou por <span>anti-heróis</span>?<br> Então vem conferir o vídeo abaixo:</p>
+
+            <video width="100%" controls>
+                <source src="videos/antiherois.mp4" type="video/mp4">
+            </video> 
+        </section>
+    </main>
+    <footer>
+        <small>&copy; João Vitor de Oliveira, Matheus Martinenghi e Natália Sens Weise</small>
+    </footer>
+
+</body>
+</html>

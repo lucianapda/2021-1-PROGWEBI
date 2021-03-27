@@ -4,97 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" href="logo02.png" type="image/x-icon">
-    <title>Universo HQ</title>
+    <link rel="shortcut icon" href="images/logo02.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="scripts/characterStore.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/actions.js"></script>
+    <title>Universo HQ - Home</title>
 </head>
 <body>
     <header id="start">
-    </header>
-    <nav>
-        <div>
-            <a href="#start"><img src="logo02.png" alt="Logo Universo HQ"></a>
-            <ul>
-                <li><a href="#inserir">Inserir Personagens</a></li>
-                <li><a href="#listar">Listar Todos</a></li>
-                <li><a href="#">Listagem por Perfil</a></li>
+        <div id="menu">
+            <div>
+                <a href="#start"><img src="images/logo02.png" alt="Logo Universo HQ"></a>
+                <ul>
+                    <li class="links"><a href="#inserir">Inserir Personagens</a></li>
+                    <li class="links"><a href="#listagem">Listar Todos</a></li>
+                    <li class="tipos-list"><a>Listagem por Perfil</a>
+                        <div class="tipos-perfil">
+                            <a class="itens-perfil" id="link-heroi" onclick="loadHero()"  href="lists.html#herois" target="_blank">Herói</a>
+                            <a class="itens-perfil" id="link-vilao" onclick="loadVillain()" href="lists.html#viloes" target="_blank">Vilão</a>
+                            <a class="itens-perfil" id="link-antiheroi" onclick="loadAntiHero()" href="lists.html#antiherois" target="_blank">Anti-herói</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ul id="logout">
+                <li><span><img src="images/person.png" alt="you"></span></li>
+                <li>na_weise</li>
+                <!-- <li class="links"><a href="#start">Sair</a></li> -->
             </ul>
         </div>
-        <ul id="logout">
-            <li><a href="#start">Sair</a></li>
-        </ul>
-    </nav>
-    <div class="card" id="inserir">
-        <form method="POST" action="">
-            <h1>Cadastro</h1>
-            <label class="title">Conhecido como:</label>
-            <input type="text" name="nome" id="nome" placeholder="Ex: Homem-Aranha">
-            <label class="title">Alter ego:</label>
-            <input type="text" name="ego" id="ego" placeholder="Ex: Peter Parker"> 
-            <label class="title">Franquia:</label>
-            <input type="radio" name="franquia" value="Marvel"/>Marvel
-            <input type="radio" name="franquia" value="DC"/>DC<br>
-            <label class="title">Perfil:</label>
-            <input type="radio" name="perfil" value="Heroi"/>Herói
-            <input type="radio" name="perfil" value="Vilao"/>Vilão
-            <input type="radio" name="perfil" value="Antiheroi"/>Anti-herói<br>
-            <label class="title">Poderes:</label>
-            <textarea name="poderes" id="poderes" cols="30" rows="10"></textarea>
-            <input type="submit" value="Cadastrar" >
-        </form>
-    </div>
-    <div class="card" id="listar">
-        <h1>Listagem Geral</h1>
-        <table id="listagem">
-            <tr>
-                <th>Nome</th>
-                <th>Alter ego</th>
-                <th>Franquia</th>
-                <th>Perfil</th>
-                <th>Poderes</th>
-            </tr>
-            <tr>
-                <td>Loki</td>
-                <td>Loki Laufeyson</td>
-                <td>Marvel</td>
-                <td>Anti-herói</td>
-                <td>Transmorfo, faz ilusões, quase imortal, feiticeiro.</td>
-            </tr>
-            <tr>
-                <td>Aranha-fantasma</td>
-                <td>Gwen Stacy</td>
-                <td>Marvel</td>
-                <td>Herói</td>
-                <td>Gruda nas paredes, cicatrização rápida, super força, super agilidade e flexibilidade.</td>
-            </tr>
-            <tr>
-                <td>Encantor</td>
-                <td>Amora</td>
-                <td>Marvel</td>
-                <td>Vilão</td>
-                <td>Feiticeira quase imortal.</td>
-            </tr>
-            <tr>
-                <td>Flash</td>
-                <td>Barry Allen</td>
-                <td>DC</td>
-                <td>Herói</td>
-                <td>Super velocidade, possível intangibilidade, pode voltar no tempo.</td>
-            </tr>
-            <tr>
-                <td>Capitão Frio</td>
-                <td>Leonard Snart</td>
-                <td>DC</td>
-                <td>Vilão</td>
-                <td>Arma de gelo com o porder gélido super resistente.</td>
-            </tr>
-        </table>
-    </div>
+    </header>
+    
+    <main>
+        <section id="welcome">
+            <h1 class="titulo-perfil">Seja bem-vindo(a)!</h1>
+            <p class="sobre-perfil">Nessa página você pode <strong>cadastrar os seus personagens favoritos</strong>, editá-los, excluí-los e listá-los.
+                Você também pode <strong>acessar nossa página de listagem personalizada</strong>, onde temos algumas informações
+                interessantes para cada tipo de perfil escolhido. Aproveite a visita e <strong>divirta-se</strong>!
+            </p>
+        </section>
 
+        <div class="card" id="inserir">
+            <form method="POST" action="">
+                <h2>Cadastro</h2>
+                <label for="nome" class="title">Conhecido como:</label>
+                <input type="hidden" name="charId" id="charId" value=""></input>
+                <input type="text" name="nome" id="nome" placeholder="Ex: Homem-Aranha" required>
+                <label for="ego" class="title">Alter ego:</label>
+                <input type="text" name="ego" id="ego" placeholder="Ex: Peter Parker"> 
+                <label for="franquia" class="title">Franquia:</label>
+                <input type="radio" name="franquia" id="franquia" value="Marvel"/>Marvel
+                <input type="radio" name="franquia" id="franquia" value="DC"/>DC<br>
+                <label for="perfil" class="title">Perfil:</label>
+                <input type="radio" name="perfil" id="perfil" value="Herói"/>Herói
+                <input type="radio" name="perfil" id="perfil" value="Vilão"/>Vilão
+                <input type="radio" name="perfil" id="perfil" value="Anti-herói"/>Anti-herói<br>
+                <label for="poderes" class="title">Poderes:</label>
+                <textarea name="poderes" id="poderes" cols="30" rows="10"></textarea>
+                <button type="button" id="registerOrUpdateBtn" onClick="registerOrUpdate();" value="Cadastrar" >Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="card listar">
+            <table id="listagem">
+                <caption>Listagem Geral</caption>
+                <thead>
+                <tr id="listagem-header">
+                    <th>Nome</th>
+                    <th>Alter ego</th>
+                    <th>Franquia</th>
+                    <th>Perfil</th>
+                    <th>Poderes</th>
+                    <th id="actions">#</th>
+                </tr>
+            </thead>
+            <tbody id="listagem-body">
+
+            </tbody>
+            </table>
+        </div>
+    </main>
     <footer>
-    </footer>
-    <div id="footer">
         <small>&copy; João Vitor de Oliveira, Matheus Martinenghi e Natália Sens Weise</small>
-    </div>
+    </footer>
 
 </body>
 </html>
