@@ -1,5 +1,8 @@
 $(document).ready(function() {
     updateDataTable();
+    const charId = getUrlParameter("charId");
+    if (charId)
+        updateCharacterBtn(Number.parseInt(charId));
 });
 
 function registerOrUpdate() {
@@ -61,7 +64,7 @@ function updateCharacter() {
 }
 
 function registerCharacter() {
-    const id = characterStore.getCharacterId();
+    const id = characterStore.generateCharacterId();
     const nome = $("#nome").val();
     const ego = $("#ego").val();
     const franquia = $("input[name='franquia']:checked").val();
@@ -87,27 +90,28 @@ function clearFields() {
     $("#nome").val('');
     $("#ego").val('');
     $("#poderes").val('');
-    $("#registerOrUpdateBtn").val("Cadastrar");
+    $("#registerOrUpdateBtn").html("Cadastrar");
 }
 
 function updateDataTable() {
     $("#listagem-body").empty();
-    const characters = characterStore.getCharacters();
-    for (let i = 0; i < characters.length; i++) {
-        const character = characters[i];
+    const characters = characterStore.getAllCharacters();
+    characters.forEach(character => {
         $("#listagem-body").append(`<tr id='tr-character-${character.id}'><td>${character.nome}</td><td>${character.ego}</td><td>${character.franquia}</td><td>${character.perfil}</td><td>${character.poderes}</td><td><button type="button" name="updateCharacter${character.id}" class='update-btn' id="updateCharacter${character.id}" onclick="updateCharacterBtn(${character.id});"><img src="edit.png" alt="editar"></button><button type="button" class='delete-btn' name="deleteCharacter${character.id}" id="deleteCharacter${character.id}" onclick="deleteCharacterBtn(${character.id});"><img src="trash.png" alt="deletar"></button></td></tr>`);
-    }
+    });
 }
 
 function updateCharacterBtn(characterId) {
     const character = characterStore.getCharacterById(characterId);
+    if (!character)
+        return;
     $("#charId").val(character.id);
     $("#nome").val(character.nome);
     $("#ego").val(character.ego);
     $(`input:radio[name='franquia'][value='${character.franquia}']`).prop('checked', true);
     $(`input:radio[name='perfil'][value='${character.perfil}']`).prop('checked', true);
     $("#poderes").val(character.poderes);
-    $("#registerOrUpdateBtn").val("Editar");
+    $("#registerOrUpdateBtn").html("Editar");
 }
 
 function deleteCharacterBtn(characterId) {

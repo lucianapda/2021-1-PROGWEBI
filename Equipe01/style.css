@@ -465,6 +465,10 @@ footer small{
         padding-left: 15px !important;
     }
 
+    .padding-style{
+        padding-left: 10px !important;
+    }
+
 
     .update-btn img, .delete-btn img{
         width: 10px;

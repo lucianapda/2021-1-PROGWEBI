@@ -1,6 +1,6 @@
 const characterStore = {};
 
-characterStore.getCharacters = function() {
+characterStore.getAllCharacters = function() {
     const characters = localStorage.getItem("characters");
 
     if (characters == null)
@@ -9,13 +9,28 @@ characterStore.getCharacters = function() {
     return JSON.parse(characters);
 }
 
+characterStore.getAllVillains = function() {
+    const characters = characterStore.getAllCharacters();
+    return characters.filter(character => character.perfil == "Vilão");
+}
+
+characterStore.getAllHeroes = function() {
+    const characters = characterStore.getAllCharacters();
+    return characters.filter(character => character.perfil == "Herói");
+}
+
+characterStore.getAllAntiHeroes = function() {
+    const characters = characterStore.getAllCharacters();
+    return characters.filter(character => character.perfil == "Anti-herói");
+}
+
 characterStore.getCharacterById = function(characterId) {
-    const characters = characterStore.getCharacters();
+    const characters = characterStore.getAllCharacters();
     return characters.filter(character => character.id == characterId)[0];
 }
 
-characterStore.getCharacterId = function() {
-    const characters = characterStore.getCharacters();
+characterStore.generateCharacterId = function() {
+    const characters = characterStore.getAllCharacters();
 
     if ((characters == null) || (characters == undefined))
         return 0;
@@ -24,13 +39,13 @@ characterStore.getCharacterId = function() {
 }
 
 characterStore.registerCharacter = function(character) {
-    let characters = characterStore.getCharacters();
+    let characters = characterStore.getAllCharacters();
     characters.push(character);
     localStorage.setItem("characters", JSON.stringify(characters));
 }
 
 characterStore.updateCharacter = function(character) {
-    const characters = characterStore.getCharacters();
+    const characters = characterStore.getAllCharacters();
     let charPos = 0;
     for (let i = 0; i < characters.length; i++) {
         if (characters[i].id == character.id) {
@@ -43,7 +58,7 @@ characterStore.updateCharacter = function(character) {
 }
 
 characterStore.deleteCharacter = function(characterId) {
-    const characters = characterStore.getCharacters();
+    const characters = characterStore.getAllCharacters();
     let charPos = 0;
     for (let i = 0; i < characters.length; i++) {
         if (characters[i].id == characterId) {
