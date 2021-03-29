@@ -1,0 +1,41 @@
+.Teclados{
+    display: flex;
+}
+.Mouses{
+    display: flex;
+}
+.ConsolesMicrosoft{
+    display: flex;
+}
+.ConsolesSony{
+    display: flex;
+}
+.PCtrabalho{
+    display: flex;
+}
+.PCgamer{
+    display: flex;
+}
+/*#Es{
+    position: relative;
+    float: left;
+}
+#Di{
+    position: relative;
+    float: right;
+}*/
+div.foot{
+    display: inline-block;
+}
+#Me{
+    margin-left: 30%;
+}
+#Di{
+    margin-left: 30%;
+}
+#Finalcentralizado{
+    margin-left: 30%;
+}
+#Tabelaprincipal{
+    border: 1px;
+}
