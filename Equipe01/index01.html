@@ -13,28 +13,26 @@
 </head>
 <body>
     <header id="start">
-        <div id="menu">
-            <div>
-                <a href="#start"><img src="images/logo02.png" alt="Logo Universo HQ"></a>
-                <ul>
-                    <li class="links"><a href="#inserir">Inserir Personagens</a></li>
-                    <li class="links"><a href="#listagem">Listar Todos</a></li>
-                    <li class="tipos-list"><a>Listagem por Perfil</a>
-                        <div class="tipos-perfil">
-                            <a class="itens-perfil" id="link-heroi" onclick="loadHero()"  href="lists.html#herois" target="_blank">Herói</a>
-                            <a class="itens-perfil" id="link-vilao" onclick="loadVillain()" href="lists.html#viloes" target="_blank">Vilão</a>
-                            <a class="itens-perfil" id="link-antiheroi" onclick="loadAntiHero()" href="lists.html#antiherois" target="_blank">Anti-herói</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <ul id="logout">
-                <li><span><img src="images/person.png" alt="you"></span></li>
-                <li>na_weise</li>
-                <!-- <li class="links"><a href="#start">Sair</a></li> -->
+        <nav id="menu">
+            <a href="#start"><img src="images/logo02.png" alt="Logo Universo HQ"></a>
+            <ul>
+                <li class="links"><a href="#inserir">Inserir Personagens</a></li>
+                <li class="links"><a href="#listagem">Listar Todos</a></li>
+                <li class="tipos-list"><a>Listagem por Perfil</a>
+                    <div class="tipos-perfil">
+                        <a class="itens-perfil" id="link-heroi" href="lists.html#herois" target="_blank">Herói</a>
+                        <a class="itens-perfil" id="link-vilao" href="lists.html#viloes" target="_blank">Vilão</a>
+                        <a class="itens-perfil" id="link-antiheroi" href="lists.html#antiherois" target="_blank">Anti-herói</a>
+                    </div>
+                </li>
             </ul>
-        </div>
+            <div id="logout">
+                <span><img src="images/person.png" alt="you"></span>
+                <span><small>na_weise</small></span>
+            </div>
+        </nav>
     </header>
+    
     
     <main>
         <section id="welcome">

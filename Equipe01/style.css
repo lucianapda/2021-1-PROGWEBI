@@ -72,10 +72,11 @@ body{
     margin-top: -35px;
 }
 
-#menu span img{
+#logout span img{
     width: 30px;
+    margin-top: 2px;
     margin-bottom: -8px;
-    margin-right: -20px;
+    margin-right: 10px;
     border-radius: 18px;
     border: 2px solid rgb(44, 44, 44);
 }
@@ -87,7 +88,7 @@ body{
     color:  rgb(44, 44, 44);
 } */
 
-#menu ul li{
+#menu ul li, #logout {
     display: inline;
     position: relative;
     margin-right: 25px;
@@ -341,8 +342,9 @@ footer small{
         margin-right: 20px !important;
     }
 
-    #menu span img{
-        margin-right: 0px;
+    #logout span img{
+        margin-right: 10px;
+        margin-left: 60px;
     }
 
     #logout{
