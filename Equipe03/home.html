@@ -2,7 +2,6 @@
 <html lang="pt">
 	<head>
 		<style>
-			
 			.topnavmenu{
 			background-color: #0033cc;
 			overflow: hidden;
@@ -36,7 +35,7 @@
 			color:#f2f2f2;
 			}
 			
-			a{
+			a {
 			text-decoration:none;
 			color: white;
 			}
@@ -68,6 +67,7 @@
 			footer	{
 			position:static;
 			bottom:0;
+			left:5px;
 			}
 			
 			body {
@@ -92,7 +92,9 @@
 		</style>
 		
 		<script>
-		
+		function reload(){
+		location.reload();
+		}
 		</script>
 		
 		<title>Regularis Informática</title>
@@ -102,9 +104,9 @@
 		<nav>
 			<div class="topnavmenu">
 			<ul>
-				<li><a href=#home><img src="https://cdn.discordapp.com/attachments/374275988995178497/826068284562341918/logo2.png" title="logo"></img><a href=#home></a>
-				<li><a href=#home>A Empresa</a></li>
-				<li><a href=#tabela>Faça Parte</a></li>
+				<li onclick="reload()"><a href=#home><img src="https://cdn.discordapp.com/attachments/374275988995178497/826068284562341918/logo2.png" title="logo"></img></li>
+				<li><a href="">A Empresa</a></li>
+				<li><a href="tabela.html">Faça Parte</a></li>
 			</ul>
 			
 			<img src="https://cdn.discordapp.com/attachments/374275988995178497/826090005331050506/aa3.png" title="foto perfil"></img>
