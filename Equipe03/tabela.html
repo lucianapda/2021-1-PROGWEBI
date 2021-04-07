@@ -73,6 +73,10 @@
 			margin-top:0px;
 			}
 			
+			p {
+			text-align:center;
+			}
+			
 			table{
 			text-align:center;
 			margin-left:30%;
@@ -92,7 +96,6 @@
 			
 		</style>
 		<script>
-		var index = 1;
 		function reload(){
 		location.reload();
 		}
@@ -110,18 +113,20 @@
 		coluna2.innerHTML = document.getElementById("fidade").value;
 		coluna3.innerHTML = document.getElementById("ftel").value;
 		coluna4.innerHTML = document.getElementById("fcpf").value;
-		coluna5.id = index;
-		coluna5.innerHTML = "<button type='button' onclick='excluir("+coluna5.id+")'>Exlcluir</button> <button type='button' onclick='editar()'>Editar</button>";
-		index++;
+		coluna5.innerHTML = "<button type='button' onclick='excluir(this)'>Exlcluir</button> <button type='button' onclick='editar(this)'>Editar</button>";
 		} 
 		
 		function excluir(id){
-		var tabela = document.getElementById("tabela");
-		document.getElementById("tabela").deleteRow(tabela.rowIndex);
+		var i = id.parentNode.parentNode.rowIndex;
+		document.getElementById("tabela").deleteRow(i);
 		}
 		
-		function editar(){
-		
+		function editar(id){
+		var x = document.getElementById("tabela").rows[id].cells;
+		x[0].contentEditable = "true";
+		x[1].contentEditable = "true";
+		x[2].contentEditable = "true";
+		x[3].contentE ditable = "true";
 		}
 		</script>
 		
